@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const course_url = "http://localhost:8080/api/v1/course"
+const course_url = "https://lmsb.vercel.app/api/v1/course"
 
 export const courseApi = createApi({
     reducerPath: "courseApi",

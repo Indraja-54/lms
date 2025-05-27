@@ -16,7 +16,7 @@ const port=process.env.PORT||3000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://lms-six-sigma.vercel.app/",
     credentials:true
 }))
 

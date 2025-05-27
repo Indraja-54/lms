@@ -1,0 +1,13 @@
+.ProseMirror {
+    min-height: 150px;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .ProseMirror:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+  }
+  

@@ -11,34 +11,32 @@ import courseProgressRoute from './routes/courseProgress.route.js'
 
 dotenv.config({});
 connectDB()
-const app=express();
-const port=process.env.PORT||3000;
+const app = express();
+const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors({
-    origin:"https://lms-six-sigma.vercel.app/",
-    credentials:true
+    origin: "https://lms-six-sigma.vercel.app/",
+    credentials: true
 }))
 
-app.use("/api/v1/media",mediaRoute)
-// app.set("view engine","ejs")
-// app.set("views",path.join(__dirname,"views"));
-// app.use(express.urlencoded({extended:true}))
+app.use("/api/v1/media", mediaRoute)
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/course", courseRoute)
+app.use("/api/v1/purchase", paymentRoute)
+app.use("/api/v1/progress", courseProgressRoute)
 
-//apis
-app.use("/api/v1/user",userRoute);
 
-app.use("/api/v1/course",courseRoute)
-app.use("/api/v1/purchase",paymentRoute)
-app.use("/api/v1/progress",courseProgressRoute)
-app.get("/home",(_,res)=>{
+app.get("/", (_, res) => {
     res.status(200).json({
-        success:true,
-        message:"hello I am coming form backend"
+        success: true,
+        message: "hello I am coming form backend"
     })
-})
+}
+)
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log(`server listen at prt ${port}`)
 })
 

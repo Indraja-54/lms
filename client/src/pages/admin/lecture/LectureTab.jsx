@@ -11,7 +11,7 @@ import axios from 'axios';
 import {toast} from 'sonner'
 import {useEditLectureMutation,useRemoveLectureMutation,useGetLectureByIdQuery} from '@/features/api/courseApi.js'
 import { Loader2 } from 'lucide-react'
-const MEDIA_API="https://lmsb.vercel.app/api/v1/media"
+const MEDIA_API="https://lms-4a9c.onrender.com/api/v1/media"
 const LectureTab=()=>{
     const [lectureTitle,setLectureTitle]=useState("");
     const [uploadVideoInfo,setUploadVideoInfo]=useState(null);

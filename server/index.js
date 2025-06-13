@@ -8,11 +8,10 @@ import courseRoute from "./routes/course.route.js"
 import mediaRoute from "./routes/media.route.js"
 import paymentRoute from "./routes/payment.route.js"
 import courseProgressRoute from './routes/courseProgress.route.js'
-
 dotenv.config({});
 connectDB()
+
 const app = express();
-const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
 
@@ -21,6 +20,15 @@ app.use(cors({
     credentials: true
 }))
 
+const port = process.env.PORT;
+
+app.get("/", (_, res) => {
+    res.status(200).json({
+        success: true,
+        message: "hello I am coming form backend"
+    })}
+)
+
 app.use("/api/v1/media", mediaRoute)
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/course", courseRoute)
@@ -28,16 +36,10 @@ app.use("/api/v1/purchase", paymentRoute)
 app.use("/api/v1/progress", courseProgressRoute)
 
 
-app.get("/", (_, res) => {
-    res.status(200).json({
-        success: true,
-        message: "hello I am coming form backend"
-    })
-}
-)
+
 
 app.listen(port, () => {
-    console.log(`server listen at prt ${port}`)
+    console.log(`server listen at port ${port}`)
 })
 
 

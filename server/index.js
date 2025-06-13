@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "https://lms-six-sigma.vercel.app/",
+    origin: "https://lms-six-sigma.vercel.app",
     credentials: true
 }))
 
